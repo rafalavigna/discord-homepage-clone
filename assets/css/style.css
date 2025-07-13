@@ -100,8 +100,13 @@ h2 {
 /* Prevent section images from exceeding container width / Impedir que as imagens da seção excedam a largura do contêiner */
 .section-content img {
     width: 100%;
-    max-width: 100%;
+    max-width: 90vw; /* Ensure images do not exceed viewport width / Garantir que as imagens não excedam a largura da janela de visualização */
+    height: auto;
     overflow-x: hidden; /* avoid horizontal overflow / evitar transbordamento horizontal */
+    max-height: 60vh; /* Limit height to 60% of viewport height / Limitar altura a 60% da altura da janela de visualização */
+    object-fit: contain; /* Maintain aspect ratio while fitting within the container / Manter a proporção da imagem enquanto se ajusta ao contêiner */
+    display: block; /* Ensures the image is displayed as a block element, removing white space below the image caused by 'inline' (default behavior of <img>) / Garante que a imagem seja exibida como um elemento de bloco, removendo o espaço em branco abaixo da imagem causado por 'inline' (comportamento padrão do <img>) */
+    margin: 0 auto; /* Center the image horizontally / Centralizar a imagem horizontalmente */
 }
 
 footer {
@@ -145,8 +150,9 @@ footer {
             /* Restrict image size on larger screens / Restringir o tamanho da imagem em telas maiores */
             #section-1 img, #section-2 img, #section-3 img {
                 width: 100%;
-                max-width: 607px;
+                max-width: 50vw; /* Ensure images do not exceed 50% of viewport width / Garantir que as imagens não excedam 50% da largura da janela de visualização */
                 height: auto; /* Maintain aspect ratio / Manter proporção */
+                object-fit: contain; /* Maintain aspect ratio while fitting within the container / Manter a proporção da imagem enquanto se ajusta ao contêiner */
             }
 
         #section-2 {
@@ -196,4 +202,31 @@ footer {
                 display: block;     /* Ensures the logo is displayed as a block element, removing  white space below the image caused by 'inline' (default behavior of <img>) / Garante que o logotipo seja exibido como um elemento de bloco, removendo o espaço em branco abaixo da imagem causado por 'inline' (comportamento padrão do <img>) */
             }
 
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    .section {
+        flex-direction: row; /* Force side-by-side layout in landscape even on smaller screens / Forçar layout lado a lado em paisagem mesmo em telas menores */
+        padding: 2rem; 
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .section-text-block {
+        max-width: 45vw; /* Limits text to occupy at most 45% of the width / Limita o texto para ocupar no máximo 45% da largura */
+        text-align: left;
+    }
+
+    .section img {
+        max-width: 45vw; /* Ensures images do not exceed 45% of viewport width / Garante que as imagens não excedam 45% da largura da janela de visualização */
+    }
+
+    #last-section-image {
+        max-width: 90vw; /* Ensures the last section image does not exceed 90% of viewport width / Garante que a imagem da última seção não exceda 90% da largura da janela de visualização */
+        max-height: 60vh; /* Limit height to 60% of viewport height / Limitar altura a 60% da altura da janela de visualização */
+        object-fit: contain;
+        display: block;
+        margin: 2rem auto;
+    }
 }
