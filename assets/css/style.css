@@ -123,6 +123,9 @@ footer {
     display: block; /* Ensures the logo is displayed as a block element / Garante que o logotipo seja exibido como um elemento de bloco */
 }
 
+#last-section-title {
+    text-transform: uppercase;
+}
 
 /* Desktop styles / Estilos para desktop */
 @media (min-width: 768px) { /* Larger than 768px screens styles / Estilos para telas maiores que 768px */ 
