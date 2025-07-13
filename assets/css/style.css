@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* include padding and border in total element size / incluir preenchimento e borda no tamanho total do elemento */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; 
+    line-height: 1.5; 
+    max-width: 100vw;
+    overflow-x: hidden; /* Preventing horizontal scroll / Evita scroll horizontal*/
+}
+
+header {
+    background-image: url('/assets/images/header-background.png');
+    color: white;
+    background-size: cover; /* Cover the entire header area with the background image / Cobrir toda a área do cabeçalho com a imagem de fundo */
+    background-position: center;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 69px 24px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.title, h1 {
+    text-transform: uppercase;
+    font-family: 'Luckiest Guy', cursive;
+    padding-right: 80px;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.normal-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 18px;
+}
+
+#button-download, #button-open {
+    width: 100%;
+    max-width: 381px;
+    cursor: pointer;
+}
+
+#button-download {
+    background-color: white;
+    font-size: 0.9rem;
+    color: black;
+    border: none;
+    height: 52px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin: 16px auto;
+    
+}
+
+#button-open {
+    background-color: #23272a;
+    font-size: 0.9rem;
+    color: white;
+    border: none;
+    height: 52px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin: 0 auto 16px auto;
+}
+
+/* Stack image and text vertically in each section / Empilhar imagem e texto verticalmente em cada seção */
+.section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    margin: 1rem;
+}
+
+
+#section-2, #section-4 {
+    background-color: #F6F6F6; /* light gray background / Fundo cinza claro */
+    margin: 0;
+}
+
+.section-text, .section-title {
+    margin: 1rem;
+}
+
+/* Prevent section images from exceeding container width / Impedir que as imagens da seção excedam a largura do contêiner */
+.section-content img {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* avoid horizontal overflow / evitar transbordamento horizontal */
+}
+
+footer {
+    display: flex;
+    background-color: #23272A; /* dark background / fundo escuro */
+    height: 140px;
+    justify-content: center;    /* center horizontally / centralizar horizontalmente */
+    align-items: center;        /* center vertically / centralizar verticalmente */
+}
+
+.footer-logo {
+    width: auto;
+    height: 30.7px;
+    display: block; /* Ensures the logo is displayed as a block element / Garante que o logotipo seja exibido como um elemento de bloco */
+}
+
+
+/* Desktop styles / Estilos para desktop */
+@media (min-width: 768px) { /* Larger than 768px screens styles / Estilos para telas maiores que 768px */ 
+            /* Arrange sections side-by-side instead of stacked / Organizar seções lado a lado em vez de empilhadas */
+            #section-1, #section-3 {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem; /* Space between image and text / Espaço entre imagem e texto */
+                max-width: 1200px;
+                margin: 4rem auto;
+                padding: 0 2rem;
+            }
+        /* Limit the width of text blocks in sections / Limitar a largura dos blocos de texto nas seções */
+            #section-1 .section-text-block, #section-3 .section-text-block {
+                max-width: 348px;
+                text-align: left;
+            }
+
+        /* Ensure images in sections are responsive / Garantir que as imagens nas seções sejam responsivas */
+        .section-text-block {
+                max-width: 348px;
+            }
+
+            /* Restrict image size on larger screens / Restringir o tamanho da imagem em telas maiores */
+            #section-1 img, #section-2 img, #section-3 img {
+                width: 100%;
+                max-width: 607px;
+                height: auto; /* Maintain aspect ratio / Manter proporção */
+            }
+
+        #section-2 {
+            flex-direction: row-reverse; /* Reverse the order of image and text / Inverter a ordem da imagem e do texto */
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        #section-2 .section-text-block {
+            max-width: 348px;
+            text-align: left;
+        }
+
+        /* Centralize and constrain section-2 content / Centralizar e restringir o conteúdo da seção-2 */
+        #section-2 .section-content {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Limit max width of text and center it in section-4 / Limitar a largura máxima do texto e centralizá-lo na seção-4 */
+        .normal-text, #last-section, #last-section-title {
+            max-width: 55%;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+            #last-section-title {
+                text-transform: uppercase;
+            }
+
+            #last-section-image {
+                max-width: 50%;
+                align-self: center;
+            }
+
+            /* Ensure footer logo is responsive and centered / Garantir que o logotipo do rodapé seja responsivo e centralizado */
+            .footer-logo {
+                width: auto; /* Preserve aspect ratio / Preservar proporção */
+                height: 43.08px;
+                display: block;     /* Ensures the logo is displayed as a block element, removing  white space below the image caused by 'inline' (default behavior of <img>) / Garante que o logotipo seja exibido como um elemento de bloco, removendo o espaço em branco abaixo da imagem causado por 'inline' (comportamento padrão do <img>) */
+            }
+
+}
