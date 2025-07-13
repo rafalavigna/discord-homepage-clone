@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-image: url('/assets/images/header-background.png');
+    background-image: url('../images/header-background.png');
     color: white;
     background-size: cover; /* Cover the entire header area with the background image / Cobrir toda a área do cabeçalho com a imagem de fundo */
     background-position: center;
