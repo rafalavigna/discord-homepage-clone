@@ -206,11 +206,16 @@ footer {
 
 @media (orientation: landscape) and (max-width: 1024px) {
     .section {
-        flex-direction: row; /* Force side-by-side layout in landscape even on smaller screens / Forçar layout lado a lado em paisagem mesmo em telas menores */
-        padding: 2rem; 
+        flex-direction: column; /* 🔧 DEFAULT: stack image and text vertically */
         justify-content: center;
         align-items: center;
         gap: 2rem;
+    }
+
+    #section-1,
+    #section-2,
+    #section-3 {
+        flex-direction: row; /* 🔄 EXCEÇÃO: aplica layout lado a lado só nessas seções */
     }
 
     .section-text-block {
@@ -225,8 +230,27 @@ footer {
     #last-section-image {
         max-width: 90vw; /* Ensures the last section image does not exceed 90% of viewport width / Garante que a imagem da última seção não exceda 90% da largura da janela de visualização */
         max-height: 60vh; /* Limit height to 60% of viewport height / Limitar altura a 60% da altura da janela de visualização */
-        object-fit: contain;
-        display: block;
-        margin: 2rem auto;
+        object-fit: contain; /* Maintain aspect ratio while fitting within the container / Manter a proporção da imagem enquanto se ajusta ao contêiner */
+        display: block; /* Ensures the image is displayed as a block element, removing white space below the image caused by 'inline' (default behavior of <img>) / Garante que a imagem seja exibida como um elemento de bloco, removendo o espaço em branco abaixo da imagem causado por 'inline' (comportamento padrão do <img>) */
+        margin: 0 auto;
     }
+
+    .last-section-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center text in the last section / Centralizar texto na última seção */
+    }
+    #last-section-title {
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+/* ✅ AJUSTE PARA TEXTO FICAR MENOS ESPREMIDO NA SECTION FINAL */
+    #last-section .normal-text {
+        max-width: 80vw !important; /* ⬅️ Aumenta a largura do texto */
+        text-align: center;
+        margin: 0 auto;
+}
+
 }
