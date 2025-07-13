@@ -218,6 +218,17 @@ footer {
         flex-direction: row; /* 🔄 EXCEÇÃO: aplica layout lado a lado só nessas seções */
     }
 
+    #section-2 .section-content {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+    }
+
     .section-text-block {
         max-width: 45vw; /* Limits text to occupy at most 45% of the width / Limita o texto para ocupar no máximo 45% da largura */
         text-align: left;
@@ -246,9 +257,9 @@ footer {
         text-align: center;
     }
 
-/* ✅ AJUSTE PARA TEXTO FICAR MENOS ESPREMIDO NA SECTION FINAL */
+/* Last section text styling / Estilização do texto da última seção */
     #last-section .normal-text {
-        max-width: 80vw !important; /* ⬅️ Aumenta a largura do texto */
+        max-width: 70vw !important; /* Aumenta a largura do texto */
         text-align: center;
         margin: 0 auto;
 }
